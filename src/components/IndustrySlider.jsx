@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const INDUSTRY_ICONS = {
   "Real Estate": (
@@ -20,7 +21,7 @@ const INDUSTRY_ICONS = {
     </svg>
   ),
 
-  "Digital&": (
+  "Manufacture": (
     <svg
       width="20"
       height="20"
@@ -39,7 +40,7 @@ const INDUSTRY_ICONS = {
     </svg>
   ),
 
-  Branding: (
+  "Retail": (
     <svg
       width="20"
       height="20"
@@ -55,7 +56,7 @@ const INDUSTRY_ICONS = {
     </svg>
   ),
 
-  Campaign: (
+  "Jewelry": (
     <svg
       width="20"
       height="20"
@@ -103,24 +104,28 @@ export default function IndustrySlider() {
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1800&q=85",
       alt: "Real Estate",
       title: "Real Estate",
+      path: "/realestate",
     },
     {
       image:
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1800&q=85",
-      alt: "Digital",
-      title: "Digital&",
+      alt: "Manufacturing",
+      title: "Manufacture",
+      path: "/manufacturing",
     },
     {
       image:
         "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1800&q=85",
-      alt: "Branding",
-      title: "Branding",
+      alt: "Retail",
+      title: "Retail",
+      path: "/retail",
     },
     {
       image:
         "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1800&q=85",
-      alt: "Campaign",
-      title: "Campaign",
+      alt: "Jewelry",
+      title: "Jewelry",
+      path: "/jewelry",
     },
   ];
 
@@ -268,49 +273,85 @@ export default function IndustrySlider() {
                       "
                     />
 
-                    {/* Bottom-left content */}
-                    <div
-                      className="
-                        absolute bottom-0 left-0
-                        z-20
-                        p-7
-                        max-[650px]:p-5
-                      "
-                    >
-                      {/* Industry icon */}
-                      <div
-                        className="
-                          mb-4
-                          flex h-[46px] w-[46px]
-                          items-center justify-center
-                          rounded-full
-                          border border-white/25
-                          bg-black/55
-                          text-white
-                          shadow-[0_6px_18px_rgba(0,0,0,0.18)]
-                          backdrop-blur-md
-                          transition-all duration-300
-                          group-hover:-translate-y-0.5
-                          group-hover:bg-black/70
-                        "
-                      >
-                        {INDUSTRY_ICONS[project.title]}
-                      </div>
-
-                      {/* Title */}
-                      <h2
-                        className="
-                          font-['Bricolage_Grotesque','ui-sans-serif','system-ui','sans-serif']
-                          text-[clamp(32px,4vw,48px)]
-                          font-medium
-                          leading-[0.95]
-                          tracking-[-0.045em]
-                          text-white
-                        "
-                      >
-                        {project.title}
-                      </h2>
-                    </div>
+                     {/* Bottom-left content */}
+                     <div
+                       className="
+                         absolute bottom-0 left-0 right-0
+                         z-20
+                         flex items-end justify-between
+                         p-7
+                         max-[650px]:p-5
+                       "
+                     >
+                       <div>
+                         {/* Industry icon */}
+                         <div
+                           className="
+                             mb-4
+                             flex h-[46px] w-[46px]
+                             items-center justify-center
+                             rounded-full
+                             border border-white/25
+                             bg-black/55
+                             text-white
+                             shadow-[0_6px_18px_rgba(0,0,0,0.18)]
+                             backdrop-blur-md
+                             transition-all duration-300
+                             group-hover:-translate-y-0.5
+                             group-hover:bg-black/70
+                           "
+                         >
+                           {INDUSTRY_ICONS[project.title]}
+                         </div>
+ 
+                         {/* Title */}
+                         <h2
+                           className="
+                             font-['Bricolage_Grotesque','ui-sans-serif','system-ui','sans-serif']
+                             text-[clamp(32px,4vw,48px)]
+                             font-medium
+                             leading-[0.95]
+                             tracking-[-0.045em]
+                             text-white
+                           "
+                         >
+                           {project.title}
+                         </h2>
+                       </div>
+ 
+                       {/* Explore Button */}
+                       <Link
+                         to={project.path}
+                         className="
+                           flex h-[46px] px-5
+                           items-center justify-center gap-2
+                           rounded-full
+                           border border-white/30
+                           bg-white/90 text-black
+                           text-[13px] font-bold
+                           shadow-[0_6px_18px_rgba(0,0,0,0.1)]
+                           backdrop-blur-md
+                           transition-all duration-300
+                           hover:bg-white hover:scale-105
+                           max-[650px]:px-4 max-[650px]:h-[40px] max-[650px]:text-[12px]
+                         "
+                       >
+                         Explore
+                         <svg
+                           width="14"
+                           height="14"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                           stroke="currentColor"
+                           strokeWidth="2.5"
+                           strokeLinecap="round"
+                           strokeLinejoin="round"
+                         >
+                           <path d="M5 12h14" />
+                           <path d="M12 5l7 7-7 7" />
+                         </svg>
+                       </Link>
+                     </div>
                   </div>
                 </div>
               </article>

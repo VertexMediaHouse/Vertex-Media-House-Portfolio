@@ -1,17 +1,17 @@
+import DesignSystem from '../components/DesignSystem';
 import Header from '../components/Header';
 import HowVertexWorks from '../components/HowVertexWorks';
 import LeadCaptureForm from '../components/LeadCaptureForm';
-import VideoShowcase from '../components/VideoShowcase';
 
-function Edit() {
+function Design() {
   return (
     <>
-      <Header />
-      <VideoShowcase/>
+      <Header/>
+      <DesignSystem/>
       <HowVertexWorks/>
       <LeadCaptureForm />
     </>
   );
 }
 
-export default Edit;
+export default Design;

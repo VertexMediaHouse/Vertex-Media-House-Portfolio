@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const FEATURES = [
+const DEFAULT_FEATURES = [
   {
     key: 'recurring',
     title: 'Recurring tasks',
@@ -59,12 +59,21 @@ const FEATURES = [
   },
 ];
 
-function Industry() {
-  const [active, setActive] = useState('reporting');
+function Industry({
+  category = "Automation That Works",
+  title = (
+    <>
+      Put your business on <span className="text-[#FF5A36]">autopilot.</span>
+    </>
+  ),
+  description = "We build systems that handle the repetitive work behind your business — from capturing leads to routing, support, reporting, and everything in between.",
+  features = DEFAULT_FEATURES
+}) {
+  const [active, setActive] = useState(features[0]?.key || '');
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
   const activeFeature =
-    FEATURES.find((feature) => feature.key === active) || FEATURES[0];
+    features.find((feature) => feature.key === active) || features[0];
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -121,7 +130,7 @@ function Industry() {
 
       <div className="relative z-10 mx-20 mb-12 max-w-[1300px]">
         <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.18em] text-[#FF5A36]">
-          Automation That Works
+          {category}
         </p>
 
         <h2
@@ -135,14 +144,11 @@ function Industry() {
             text-[#111214]
           "
         >
-          Put your business on{' '}
-          <span className="text-[#FF5A36]">autopilot.</span>
+          {title}
         </h2>
 
         <p className="mt-5 max-w-[650px] text-[15px] font-medium leading-7 text-[#77746f] sm:text-[16px]">
-          We build systems that handle the repetitive work behind your
-          business — from capturing leads to routing, support, reporting, and
-          everything in between.
+          {description}
         </p>
       </div>
 
@@ -203,7 +209,7 @@ function Industry() {
           "
         >
           <div className="flex h-full flex-col justify-center py-3">
-            {FEATURES.map((feature, idx) => {
+            {features.map((feature, idx) => {
               const isActive = active === feature.key;
 
               return (
@@ -215,7 +221,7 @@ function Industry() {
                     group relative w-full text-left
                     transition-all duration-300
                     ${
-                      idx !== FEATURES.length - 1
+                      idx !== features.length - 1
                         ? 'border-b border-[#eee9df]'
                         : ''
                     }

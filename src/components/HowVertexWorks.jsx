@@ -34,7 +34,7 @@ const STEPS = [
 export default function HowVertexWorks() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 });
 
-  const handleMouseMove = (e: { currentTarget: { getBoundingClientRect: () => any; }; clientX: number; clientY: number; }) => {
+  const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
     setMouse({
