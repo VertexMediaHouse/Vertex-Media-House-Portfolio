@@ -174,30 +174,30 @@ function LeadCaptureForm() {
 
       <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[430px] w-[1200px] -translate-x-1/2">
 
-        {/* Large blue atmospheric glow */}
+        {/* Soft warm atmospheric glow */}
         <div
           className="absolute left-1/2 top-[-300px] h-[680px] w-[1200px] -translate-x-1/2 rounded-[50%] blur-[55px]"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 50%, rgba(191,219,254,0.42) 0%, rgba(219,234,254,0.25) 32%, rgba(239,246,255,0.12) 52%, transparent 72%)',
+              'radial-gradient(ellipse at 50% 50%, rgba(255,220,211,0.55) 0%, rgba(255,238,232,0.35) 32%, rgba(255,248,245,0.16) 52%, transparent 72%)',
           }}
         />
 
-        {/* Inner blue glow */}
+        {/* Inner soft orange glow */}
         <div
           className="absolute left-1/2 top-[-220px] h-[500px] w-[850px] -translate-x-1/2 rounded-[50%] blur-[65px]"
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(147,197,253,0.20) 0%, rgba(191,219,254,0.12) 42%, transparent 72%)',
+              'radial-gradient(ellipse at center, rgba(255,190,174,0.20) 0%, rgba(255,220,211,0.12) 42%, transparent 72%)',
           }}
         />
 
-        {/* Very subtle orange center glow */}
+        {/* Very subtle center glow */}
         <div
           className="absolute left-1/2 top-[-110px] h-[330px] w-[520px] -translate-x-1/2 rounded-full blur-[75px]"
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(255,90,61,0.10) 0%, rgba(255,120,90,0.04) 45%, transparent 72%)',
+              'radial-gradient(ellipse at center, rgba(255,130,105,0.08) 0%, rgba(255,160,140,0.03) 45%, transparent 72%)',
           }}
         />
       </div>
@@ -210,16 +210,16 @@ function LeadCaptureForm() {
 
         <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold tracking-tight text-slate-900">
           Claim{' '}
-          <span className="bg-gradient-to-r from-[#ff3814] via-[#ff5a3d] to-[#ff3814] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#FF6848] via-[#FF8A70] to-[#FF6848] bg-clip-text text-transparent">
             20% OFF
           </span>{' '}
           Your First Project
         </h2>
 
-        <p className="mt-3 text-[15px] text-slate-500">
+        <p className="mt-3 text-[15px] font-medium text-slate-600">
           Book any Automation, Design, or Editing service during our event
           and get{' '}
-          <span className="font-semibold text-[#ff3814]">
+          <span className="font-bold text-[#C94A32]">
             20% OFF.
           </span>
         </p>
@@ -229,10 +229,10 @@ function LeadCaptureForm() {
           MAIN GLASS CARD
           ========================================================= */}
 
-      <div className="relative z-10 mx-auto mt-10 max-w-[1050px] overflow-hidden rounded-[32px] border border-white/70 bg-white/45 p-6 shadow-[0_30px_90px_-25px_rgba(30,64,175,0.25)] backdrop-blur-2xl md:p-10">
+      <div className="relative z-10 mx-auto mt-10 max-w-[1050px] overflow-hidden rounded-[32px] border border-white/70 bg-white/45 p-6 shadow-[0_30px_90px_-25px_rgba(255,107,74,0.14)] backdrop-blur-2xl md:p-10">
 
         {/* Inner glass highlight */}
-        <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/50 via-white/10 to-blue-100/10" />
+        <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/60 via-white/20 to-[#fff3ef]/30" />
 
         <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
 
@@ -245,7 +245,7 @@ function LeadCaptureForm() {
               1. Choose Your Service
             </h3>
 
-            <p className="mt-1 text-[13px] text-slate-500">
+            <p className="mt-1 text-[13px] font-medium text-slate-600">
               Select the service you're interested in:
             </p>
 
@@ -259,14 +259,14 @@ function LeadCaptureForm() {
                     key={cat}
                     type="button"
                     onClick={() => handleCategoryChange(cat)}
-                    className={`relative flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-sm font-semibold backdrop-blur-xl transition-all duration-300 ${
+                    className={`relative flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-sm font-bold backdrop-blur-xl transition-all duration-300 ${
                       isActive
-                        ? 'border-[#ff3814]/40 bg-[#ff3814]/10 text-[#ff3814] shadow-[0_8px_30px_rgba(255,56,20,0.12)] ring-1 ring-[#ff3814]/30'
-                        : 'border-white/70 bg-white/35 text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] hover:border-white hover:bg-white/55'
+                        ? 'border-[#FF6B4A]/35 bg-[#FF6B4A]/10 text-[#C94A32] shadow-[0_8px_30px_rgba(255,107,74,0.10)] ring-1 ring-[#FF6B4A]/25'
+                        : 'border-white/70 bg-white/35 text-slate-600 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] hover:border-white hover:bg-white/55'
                     }`}
                   >
                     {isActive && (
-                      <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-white/70 bg-[#ff3814] text-white shadow-lg">
+                      <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-white/80 bg-[#FF6B4A] text-white shadow-md">
                         <svg
                           width="12"
                           height="12"
@@ -285,7 +285,7 @@ function LeadCaptureForm() {
                     <span
                       className={
                         isActive
-                          ? 'text-[#ff3814]'
+                          ? 'text-[#C94A32]'
                           : 'text-slate-400'
                       }
                     >
@@ -298,7 +298,7 @@ function LeadCaptureForm() {
               })}
             </div>
 
-            <p className="mt-5 text-[13px] text-slate-500">
+            <p className="mt-5 text-[13px] font-semibold text-slate-600">
               Select the {category} services you need:
             </p>
 
@@ -312,16 +312,16 @@ function LeadCaptureForm() {
                     key={service}
                     type="button"
                     onClick={() => toggleService(service)}
-                    className={`flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left text-[13px] font-medium backdrop-blur-xl transition-all duration-200 ${
+                    className={`flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left text-[13px] font-semibold backdrop-blur-xl transition-all duration-200 ${
                       isChecked
-                        ? 'border-[#ff3814]/40 bg-[#ff3814]/10 text-[#d92f10] shadow-[0_4px_18px_rgba(255,56,20,0.08)]'
+                        ? 'border-[#FF6B4A]/35 bg-[#FF6B4A]/10 text-[#C94A32] shadow-[0_4px_18px_rgba(255,107,74,0.08)]'
                         : 'border-white/70 bg-white/35 text-slate-700 hover:bg-white/55'
                     }`}
                   >
                     <span
                       className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-all duration-150 ${
                         isChecked
-                          ? 'border-[#ff3814] bg-[#ff3814] shadow-[0_2px_8px_rgba(255,56,20,0.3)]'
+                          ? 'border-[#FF6B4A] bg-[#FF6B4A] shadow-[0_2px_8px_rgba(255,107,74,0.25)]'
                           : 'border-slate-300/80 bg-white/50'
                       }`}
                     >
@@ -349,9 +349,9 @@ function LeadCaptureForm() {
 
             {/* Discount Notice */}
             {selected.size > 0 && (
-              <div className="mt-5 flex items-start gap-3 rounded-2xl border border-[#ff3814]/25 bg-[#ff3814]/10 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-xl">
+              <div className="mt-5 flex items-start gap-3 rounded-2xl border border-[#FF8A70]/30 bg-[#FFF3EF] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl">
 
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/60 bg-[#ff3814] text-white shadow-md">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/80 bg-[#FF6B4A] text-white shadow-sm">
                   <svg
                     width="14"
                     height="14"
@@ -367,8 +367,8 @@ function LeadCaptureForm() {
                   </svg>
                 </span>
 
-                <p className="text-[13px] leading-snug text-[#d92f10]">
-                  <span className="font-semibold">
+                <p className="text-[13px] font-medium leading-snug text-[#B94A32]">
+                  <span className="font-bold">
                     You'll get 20% instant discount
                   </span>
                   <br />
@@ -387,7 +387,7 @@ function LeadCaptureForm() {
               2. Tell Us About You
             </h3>
 
-            <p className="mt-1 text-[13px] text-slate-500">
+            <p className="mt-1 text-[13px] font-medium text-slate-600">
               Fill in your details and we'll get in touch with you shortly.
             </p>
 
@@ -475,7 +475,7 @@ function LeadCaptureForm() {
               />
 
               {emailError && (
-                <p className="mt-1.5 text-xs text-red-500">
+                <p className="mt-1.5 text-xs font-medium text-red-500">
                   Enter a valid email address.
                 </p>
               )}
@@ -488,10 +488,10 @@ function LeadCaptureForm() {
                 className={`flex items-stretch overflow-hidden rounded-xl border bg-white/35 backdrop-blur-xl transition-all duration-200 ${
                   phoneError
                     ? 'border-red-400'
-                    : 'border-white/70 focus-within:border-[#ff3814]/60 focus-within:bg-white/50'
+                    : 'border-white/70 focus-within:border-[#FF6B4A]/60 focus-within:bg-white/50'
                 }`}
               >
-                <span className="flex select-none items-center gap-1 border-r border-white/60 px-3 text-sm font-medium text-slate-500">
+                <span className="flex select-none items-center gap-1 border-r border-white/60 px-3 text-sm font-semibold text-slate-600">
                   <svg
                     width="15"
                     height="15"
@@ -514,12 +514,12 @@ function LeadCaptureForm() {
                   maxLength={10}
                   value={phone}
                   onChange={handlePhoneChange}
-                  className="w-full bg-transparent px-3.5 py-3 text-[13px] text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                  className="w-full bg-transparent px-3.5 py-3 text-[13px] font-medium text-slate-900 placeholder:font-medium placeholder:text-slate-400 focus:outline-none"
                 />
               </div>
 
               {phoneError && (
-                <p className="mt-1.5 text-xs text-red-500">
+                <p className="mt-1.5 text-xs font-medium text-red-500">
                   Enter a valid 10-digit phone number.
                 </p>
               )}
@@ -547,7 +547,7 @@ function LeadCaptureForm() {
                 placeholder="Tell us about your project (Optional)"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
-                className="w-full resize-none bg-transparent text-[13px] text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                className="w-full resize-none bg-transparent text-[13px] font-medium text-slate-900 placeholder:font-medium placeholder:text-slate-400 focus:outline-none"
               />
             </div>
 
@@ -556,7 +556,7 @@ function LeadCaptureForm() {
               type="button"
               onClick={handleSubmit}
               disabled={submitted}
-              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/30 bg-[#ff3814] px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_12px_30px_rgba(255,56,20,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e93212] hover:shadow-[0_16px_35px_rgba(255,56,20,0.32)] disabled:opacity-50"
+              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/40 bg-[#FF6848] px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_10px_28px_rgba(255,107,74,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F15B3C] hover:shadow-[0_14px_32px_rgba(255,107,74,0.26)] disabled:opacity-50"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -584,7 +584,7 @@ function LeadCaptureForm() {
               )}
             </button>
 
-            <p className="mt-3 flex items-center justify-center gap-1.5 text-[12px] text-slate-400">
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-[12px] font-medium text-slate-500">
               <svg
                 width="12"
                 height="12"
@@ -707,7 +707,7 @@ function FieldWithIcon({ icon, error, ...props }) {
       className={`flex items-center gap-2.5 rounded-xl border px-3.5 py-3 backdrop-blur-xl transition-all duration-200 ${
         error
           ? 'border-red-400 bg-red-50/30'
-          : 'border-white/70 bg-white/35 focus-within:border-[#ff3814]/60 focus-within:bg-white/55'
+          : 'border-white/70 bg-white/35 focus-within:border-[#FF6B4A]/60 focus-within:bg-white/55'
       }`}
     >
       <span className="shrink-0 text-slate-400">
@@ -716,7 +716,7 @@ function FieldWithIcon({ icon, error, ...props }) {
 
       <input
         {...props}
-        className="w-full bg-transparent text-[13px] text-slate-900 placeholder:text-slate-400 focus:outline-none"
+        className="w-full bg-transparent text-[13px] font-medium text-slate-900 placeholder:font-medium placeholder:text-slate-400 focus:outline-none"
       />
     </div>
   );
@@ -730,16 +730,16 @@ function TrustItem({ icon, title, subtitle }) {
   return (
     <div className="flex items-start gap-2.5">
 
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/40 text-[#ff3814] shadow-sm backdrop-blur-xl">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/40 text-[#FF6848] shadow-sm backdrop-blur-xl">
         {icon}
       </span>
 
       <div>
-        <p className="text-[13px] font-semibold leading-tight text-slate-900">
+        <p className="text-[13px] font-bold leading-tight text-slate-900">
           {title}
         </p>
 
-        <p className="text-[12px] leading-tight text-slate-400">
+        <p className="text-[12px] font-medium leading-tight text-slate-500">
           {subtitle}
         </p>
       </div>

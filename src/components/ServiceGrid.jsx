@@ -71,7 +71,7 @@ function ServiceCard({ id, icon, title, desc, href, glowPosition }) {
 export default function ServicesGrid() {
   return (
     <section className="bg-white pb-16 md:pb-20 px-6 md:px-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-[1400px] mx-14">
         {cardData.map((card) => (
           <ServiceCard key={card.id} {...card} />
         ))}
