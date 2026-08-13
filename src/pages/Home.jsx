@@ -8,8 +8,8 @@ function Home() {
   return (
     <>
       <Header />
-      <ServicesGrid/>
-      <Industry/>
+      <ServicesGrid />
+      <IndustrySlider/>
       <LeadCaptureForm />
     </>
   );

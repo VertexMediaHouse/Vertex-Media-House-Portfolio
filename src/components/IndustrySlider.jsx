@@ -1,209 +1,323 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const FEATURES = [
-  {
-    key: 'recurring',
-    title: 'Recurring tasks',
-    detail:
-      'Set it once and it runs forever — daily syncs, weekly cleanups, monthly billing, all on autopilot.',
-    image: '/images/recurring-tasks.png',
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17.65 6.35A7.95 7.95 0 0012 4a8 8 0 108 8M17.65 6.35V4m0 2.35H15.3"
-      />
-    ),
-  },
-  {
-    key: 'routing',
-    title: 'Lead routing',
-    detail:
-      'Every new lead is scored, enriched, and handed to the right rep the moment it comes in — no manual triage.',
-    image: '/images/lead-routing.png',
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 11l18-8-8 18-2-8-8-2z"
-      />
-    ),
-  },
-  {
-    key: 'triage',
-    title: 'Ticket triage',
-    detail:
-      'Incoming support tickets are read, tagged, and routed automatically so nothing sits in a queue overnight.',
-    image: '/images/ticket-triage.png',
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-      />
-    ),
-  },
-  {
-    key: 'reporting',
-    title: 'Live reporting',
-    detail:
-      'Daily and weekly reports build and deliver themselves straight to your inbox — no spreadsheets to update, no numbers to copy, no Monday scramble.',
-    image: '/images/live-reporting.png',
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4 19h16M7 16v-4m5 4V8m5 8v-6"
-      />
-    ),
-  },
-];
+const INDUSTRY_ICONS = {
+  "Real Estate": (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 21h18" />
+      <path d="M5 21V8l7-4 7 4v13" />
+      <path d="M9 21v-5h6v5" />
+      <path d="M9 10h.01" />
+      <path d="M15 10h.01" />
+    </svg>
+  ),
 
-function IndustrySlider() {
-  const [active, setActive] = useState('reporting');
+  "Digital&": (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="13" rx="2" />
+      <path d="M8 21h8" />
+      <path d="M12 17v4" />
+      <path d="M7 9l2 2-2 2" />
+      <path d="M11 13h3" />
+    </svg>
+  ),
 
-  const activeFeature =
-    FEATURES.find((feature) => feature.key === active) || FEATURES[0];
+  Branding: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.12 2.12 0 013 3L8 18l-4 1 1-4L16.5 3.5z" />
+    </svg>
+  ),
+
+  Campaign: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 11v2" />
+      <path d="M6 9v6" />
+      <path d="M9 7v10" />
+      <path d="M12 5v14" />
+      <path d="M16 8l5-3v14l-5-3V8z" />
+    </svg>
+  ),
+};
+
+export default function IndustrySlider() {
+  const [glow, setGlow] = useState({});
+
+  const handleMouseMove = (e, index) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    setGlow((prev) => ({
+      ...prev,
+      [index]: {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      },
+    }));
+  };
+
+  const handleMouseLeave = (index) => {
+    setGlow((prev) => ({
+      ...prev,
+      [index]: null,
+    }));
+  };
+
+  const projects = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1800&q=85",
+      alt: "Real Estate",
+      title: "Real Estate",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1800&q=85",
+      alt: "Digital",
+      title: "Digital&",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1800&q=85",
+      alt: "Branding",
+      title: "Branding",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1800&q=85",
+      alt: "Campaign",
+      title: "Campaign",
+    },
+  ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f8f8] px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      className="
+        relative z-10 mt-0 w-full overflow-hidden
+        bg-[#ffffff] px-6 text-[#111214]
+        sm:px-8 lg:px-10
+      "
+    >
+      {/* Top-center section glow */}
+      <div
+        className="
+          pointer-events-none absolute
+          left-1/2 top-[-220px]
+          h-[520px] w-[1000px]
+          -translate-x-1/2
+          rounded-full
+          blur-[85px]
+        "
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(215,235,255,0.42) 30%, rgba(232,244,255,0.24) 68%, rgba(245,250,255,0.10) 88%, transparent 94%)",
+        }}
+      />
 
-      {/* Main panel */}
-      <div className="relative mx-auto flex h-[450px] max-w-[1100px] flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] lg:flex-row">
+      <div className="relative mx-18 mt-18 max-w-[1500px]">
+        <h2
+          className="
+            mb-12
+            font-['Bricolage_Grotesque','ui-sans-serif','system-ui','sans-serif']
+            text-[clamp(40px,6vw,64px)]
+            font-semibold
+            leading-[1]
+            tracking-[-0.045em]
+            text-[#111214]
+          "
+        >
+          Industry We Serve
+        </h2>
 
-        {/* LEFT — Feature tabs */}
-        <div className="relative w-full shrink-0 border-b border-slate-200 lg:w-[42%] lg:border-b-0 lg:border-r">
-          <div className="flex h-full flex-col justify-center">
-            {FEATURES.map((feature, idx) => {
-              const isActive = active === feature.key;
+        <div
+          id="scrollTrack"
+          className="
+            projects flex snap-x snap-mandatory gap-7 overflow-x-auto pb-6
+            cursor-grab select-none active:cursor-grabbing
+            [scrollbar-width:none]
+            [-webkit-overflow-scrolling:touch]
+            [&::-webkit-scrollbar]:hidden
+            max-[650px]:gap-4
+          "
+        >
+          {projects.map((project, index) => {
+            const position = glow[index];
 
-              return (
-                <button
-                  key={feature.key}
-                  type="button"
-                  onClick={() => setActive(feature.key)}
-                  className={`group relative w-full text-left transition-all duration-300 ${
-                    idx !== FEATURES.length - 1
-                      ? 'border-b border-slate-200'
-                      : ''
-                  }`}
+            return (
+              <article
+                key={project.title}
+                className="
+                  group relative min-w-0
+                  flex-[0_0_600px] snap-start
+                  max-[650px]:flex-[0_0_84vw]
+                "
+              >
+                <div
+                  onMouseMove={(e) => handleMouseMove(e, index)}
+                  onMouseLeave={() => handleMouseLeave(index)}
+                  className="
+                    relative overflow-hidden
+                    rounded-[28px]
+                    border border-[#e8e4dc]
+                    bg-[#f7f4ee]
+                    p-6
+                    shadow-[0_8px_30px_rgba(0,0,0,0.045)]
+                    transition-all duration-500
+                    hover:-translate-y-1
+                    max-[650px]:rounded-[24px]
+                    max-[650px]:p-4
+                  "
                 >
-                  {isActive && (
-                    <div className="absolute inset-2 rounded-2xl border border-[#ff3814]/20 bg-[#fff7f4] shadow-[0_8px_24px_rgba(255,56,20,0.06)]" />
-                  )}
+                  {/* Mouse-follow glow */}
+                  <div
+                    className="
+                      pointer-events-none absolute z-20
+                      h-[280px] w-[280px]
+                      -translate-x-1/2 -translate-y-1/2
+                      rounded-full
+                      bg-white/60
+                      blur-[70px]
+                      opacity-0
+                      transition-opacity duration-300
+                      group-hover:opacity-100
+                    "
+                    style={{
+                      left: position?.x ?? "50%",
+                      top: position?.y ?? "50%",
+                    }}
+                  />
 
-                  <div className="relative px-6 py-5 sm:px-8">
-                    <div className="flex items-center gap-4">
+                  {/* Image */}
+                  <div
+                    className="
+                      relative z-10
+                      aspect-[2] w-full
+                      overflow-hidden
+                      rounded-[22px]
+                      bg-[#e9eef4]
+                      max-[650px]:rounded-[18px]
+                    "
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      draggable="false"
+                      className="
+                        pointer-events-none absolute inset-0
+                        h-full w-full object-cover
+                        transition-transform duration-[1000ms]
+                        ease-[cubic-bezier(.16,1,.3,1)]
+                        group-hover:scale-[1.045]
+                      "
+                    />
 
-                      {/* Icon */}
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
-                          isActive
-                            ? 'border-[#ff3814]/25 bg-[#fff0eb] text-[#ff3814]'
-                            : 'border-slate-200 bg-slate-50 text-slate-600 group-hover:border-slate-300 group-hover:bg-white group-hover:text-slate-800'
-                        }`}
+                    {/* Image contrast */}
+                    <div
+                      className="
+                        pointer-events-none absolute inset-0
+                        bg-gradient-to-t
+                        from-black/75
+                        via-black/15
+                        to-black/10
+                      "
+                    />
+
+                    {/* Subtle image highlight */}
+                    <div
+                      className="
+                        pointer-events-none absolute inset-0
+                        bg-gradient-to-br
+                        from-white/[0.08]
+                        via-transparent
+                        to-transparent
+                      "
+                    />
+
+                    {/* Bottom-left content */}
+                    <div
+                      className="
+                        absolute bottom-0 left-0
+                        z-20
+                        p-7
+                        max-[650px]:p-5
+                      "
+                    >
+                      {/* Industry icon */}
+                      <div
+                        className="
+                          mb-4
+                          flex h-[46px] w-[46px]
+                          items-center justify-center
+                          rounded-full
+                          border border-white/25
+                          bg-black/55
+                          text-white
+                          shadow-[0_6px_18px_rgba(0,0,0,0.18)]
+                          backdrop-blur-md
+                          transition-all duration-300
+                          group-hover:-translate-y-0.5
+                          group-hover:bg-black/70
+                        "
                       >
-                        <svg
-                          className="h-4 w-4"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          viewBox="0 0 24 24"
-                        >
-                          {feature.icon}
-                        </svg>
-                      </span>
+                        {INDUSTRY_ICONS[project.title]}
+                      </div>
 
                       {/* Title */}
-                      <h3
-                        className={`flex-1 text-[15px] font-bold tracking-tight transition-colors duration-300 ${
-                          isActive
-                            ? 'text-slate-950'
-                            : 'text-slate-700 group-hover:text-slate-950'
-                        }`}
+                      <h2
+                        className="
+                          font-['Bricolage_Grotesque','ui-sans-serif','system-ui','sans-serif']
+                          text-[clamp(32px,4vw,48px)]
+                          font-medium
+                          leading-[0.95]
+                          tracking-[-0.045em]
+                          text-white
+                        "
                       >
-                        {feature.title}
-                      </h3>
-
-                      {/* Arrow */}
-                      <svg
-                        className={`h-4 w-4 shrink-0 transition-all duration-300 ${
-                          isActive
-                            ? 'translate-x-0.5 rotate-90 text-[#ff3814]'
-                            : 'text-slate-400 group-hover:text-slate-700'
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M9 18l6-6-6-6"
-                        />
-                      </svg>
-                    </div>
-
-                    {/* Description */}
-                    <div
-                      className={`grid transition-all duration-300 ${
-                        isActive
-                          ? 'grid-rows-[1fr] opacity-100'
-                          : 'grid-rows-[0fr] opacity-0'
-                      }`}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="ml-[56px] max-w-[330px] pt-3 text-[13px] font-medium leading-6 text-slate-600">
-                          {feature.detail}
-                        </p>
-                      </div>
+                        {project.title}
+                      </h2>
                     </div>
                   </div>
-                </button>
-              );
-            })}
-          </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
-
-        {/* RIGHT — Dynamic image */}
-        <div className="relative flex min-h-[440px] flex-1 items-center justify-center overflow-hidden bg-slate-50 p-5 sm:p-7 lg:min-h-[560px] lg:p-8">
-
-          <div
-            key={activeFeature.key}
-            className="relative w-full animate-[fadeIn_350ms_ease-out]"
-          >
-            <div className="relative overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.10)]">
-
-              <img
-                src={activeFeature.image}
-                alt={activeFeature.title}
-                className="block h-auto w-full object-cover"
-              />
-
-              {/* Very subtle image overlay */}
-              <div className="pointer-events-none absolute inset-0 bg-white/[0.03]" />
-            </div>
-          </div>
-        </div>
-
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(6px) scale(0.99);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-      `}</style>
     </section>
   );
 }
-
-export default IndustrySlider;

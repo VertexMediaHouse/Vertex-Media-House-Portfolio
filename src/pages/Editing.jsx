@@ -1,17 +1,17 @@
 import Header from '../components/Header';
-import Industry from '../components/Industry';
 import HowVertexWorks from '../components/HowVertexWorks';
 import LeadCaptureForm from '../components/LeadCaptureForm';
+import VideoShowcase from '../components/VideoShowcase';
 
-function Automate() {
+function Editing() {
   return (
     <>
       <Header />
-      <Industry />
+      <VideoShowcase/>
       <HowVertexWorks/>
       <LeadCaptureForm />
     </>
   );
 }
 
-export default Automate;
+export default Editing;
