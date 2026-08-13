@@ -11,8 +11,19 @@ const AUTOMATION_SERVICES = [
   'Custom AI Solutions',
 ];
 
-const DESIGN_SERVICES = ['Branding', 'Website Design', 'UI/UX Design', 'Landing Pages'];
-const EDITING_SERVICES = ['Video Editing', 'Photo Editing', 'Motion Graphics', 'Color Grading'];
+const DESIGN_SERVICES = [
+  'Branding',
+  'Website Design',
+  'UI/UX Design',
+  'Landing Pages',
+];
+
+const EDITING_SERVICES = [
+  'Video Editing',
+  'Photo Editing',
+  'Motion Graphics',
+  'Color Grading',
+];
 
 const SERVICES_BY_CATEGORY = {
   Automation: AUTOMATION_SERVICES,
@@ -22,7 +33,16 @@ const SERVICES_BY_CATEGORY = {
 
 const CATEGORY_ICONS = {
   Automation: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <rect x="4" y="8" width="16" height="12" rx="2" />
       <circle cx="9" cy="14" r="1" />
       <circle cx="15" cy="14" r="1" />
@@ -30,16 +50,36 @@ const CATEGORY_ICONS = {
       <circle cx="12" cy="3" r="1" />
     </svg>
   ),
+
   Designing: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M12 19l7-7 3 3-7 7-3-3z" />
       <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
       <path d="M2 2l7.586 7.586" />
       <circle cx="11" cy="11" r="2" />
     </svg>
   ),
+
   Editing: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <rect x="2" y="6" width="14" height="12" rx="2" />
       <path d="M16 10l6-3v10l-6-3" />
     </svg>
@@ -48,19 +88,22 @@ const CATEGORY_ICONS = {
 
 function LeadCaptureForm() {
   const [category, setCategory] = useState('Automation');
+
   const [selected, setSelected] = useState(
     new Set([
       'AI Chatbots',
       'AI Voice Agents',
       'Workflow Automation',
-      'Lead Generation Automation',
+      'Lead Generation',
     ])
   );
+
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [note, setNote] = useState('');
+
   const [phoneError, setPhoneError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -83,7 +126,10 @@ function LeadCaptureForm() {
   };
 
   const handlePhoneChange = (e) => {
-    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+    const digitsOnly = e.target.value
+      .replace(/\D/g, '')
+      .slice(0, 10);
+
     setPhone(digitsOnly);
     setPhoneError(false);
   };
@@ -115,37 +161,74 @@ function LeadCaptureForm() {
     };
 
     console.log('Lead submitted:', payload);
+
     setSubmitted(true);
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#eef4ff] px-4 py-14 sm:px-8">
+    <section className="relative min-h-screen overflow-hidden bg-[#ffffff] px-4 py-14 sm:px-8">
 
-      {/* Ambient liquid-glass background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-blue-400/25 blur-[100px]" />
-        <div className="absolute -right-32 top-20 h-[380px] w-[380px] rounded-full bg-cyan-300/25 blur-[100px]" />
-        <div className="absolute bottom-[-180px] left-[35%] h-[420px] w-[420px] rounded-full bg-indigo-400/20 blur-[120px]" />
-        <div className="absolute inset-0 bg-white/20" />
+      {/* =========================================================
+          TOP GLOWING DOME
+          ========================================================= */}
+
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[430px] w-[1200px] -translate-x-1/2">
+
+        {/* Large blue atmospheric glow */}
+        <div
+          className="absolute left-1/2 top-[-300px] h-[680px] w-[1200px] -translate-x-1/2 rounded-[50%] blur-[55px]"
+          style={{
+            background:
+              'radial-gradient(ellipse at 50% 50%, rgba(191,219,254,0.42) 0%, rgba(219,234,254,0.25) 32%, rgba(239,246,255,0.12) 52%, transparent 72%)',
+          }}
+        />
+
+        {/* Inner blue glow */}
+        <div
+          className="absolute left-1/2 top-[-220px] h-[500px] w-[850px] -translate-x-1/2 rounded-[50%] blur-[65px]"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, rgba(147,197,253,0.20) 0%, rgba(191,219,254,0.12) 42%, transparent 72%)',
+          }}
+        />
+
+        {/* Very subtle orange center glow */}
+        <div
+          className="absolute left-1/2 top-[-110px] h-[330px] w-[520px] -translate-x-1/2 rounded-full blur-[75px]"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, rgba(255,90,61,0.10) 0%, rgba(255,120,90,0.04) 45%, transparent 72%)',
+          }}
+        />
       </div>
 
-      {/* Heading */}
+      {/* =========================================================
+          HEADING
+          ========================================================= */}
+
       <div className="relative z-10 mx-auto max-w-[1050px] text-center">
+
         <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold tracking-tight text-slate-900">
           Claim{' '}
-          <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#ff3814] via-[#ff5a3d] to-[#ff3814] bg-clip-text text-transparent">
             20% OFF
           </span>{' '}
           Your First Project
         </h2>
 
         <p className="mt-3 text-[15px] text-slate-500">
-          Book any Automation, Design, or Editing service during our event and get{' '}
-          <span className="font-semibold text-blue-600">20% OFF.</span>
+          Book any Automation, Design, or Editing service during our event
+          and get{' '}
+          <span className="font-semibold text-[#ff3814]">
+            20% OFF.
+          </span>
         </p>
       </div>
 
-      {/* Main Glass Card */}
+      {/* =========================================================
+          MAIN GLASS CARD
+          ========================================================= */}
+
       <div className="relative z-10 mx-auto mt-10 max-w-[1050px] overflow-hidden rounded-[32px] border border-white/70 bg-white/45 p-6 shadow-[0_30px_90px_-25px_rgba(30,64,175,0.25)] backdrop-blur-2xl md:p-10">
 
         {/* Inner glass highlight */}
@@ -153,7 +236,10 @@ function LeadCaptureForm() {
 
         <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
 
-          {/* LEFT */}
+          {/* =====================================================
+              LEFT
+              ===================================================== */}
+
           <div>
             <h3 className="text-base font-bold text-slate-900">
               1. Choose Your Service
@@ -175,12 +261,12 @@ function LeadCaptureForm() {
                     onClick={() => handleCategoryChange(cat)}
                     className={`relative flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-sm font-semibold backdrop-blur-xl transition-all duration-300 ${
                       isActive
-                        ? 'border-blue-300/80 bg-blue-500/15 text-blue-600 shadow-[0_8px_30px_rgba(37,99,235,0.12)] ring-1 ring-blue-400/40'
-                        : 'border-white/70 bg-white/35 text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] hover:bg-white/55 hover:border-white'
+                        ? 'border-[#ff3814]/40 bg-[#ff3814]/10 text-[#ff3814] shadow-[0_8px_30px_rgba(255,56,20,0.12)] ring-1 ring-[#ff3814]/30'
+                        : 'border-white/70 bg-white/35 text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] hover:border-white hover:bg-white/55'
                     }`}
                   >
                     {isActive && (
-                      <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-white/70 bg-blue-600 text-white shadow-lg">
+                      <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-white/70 bg-[#ff3814] text-white shadow-lg">
                         <svg
                           width="12"
                           height="12"
@@ -196,7 +282,13 @@ function LeadCaptureForm() {
                       </span>
                     )}
 
-                    <span className={isActive ? 'text-blue-600' : 'text-slate-400'}>
+                    <span
+                      className={
+                        isActive
+                          ? 'text-[#ff3814]'
+                          : 'text-slate-400'
+                      }
+                    >
                       {CATEGORY_ICONS[cat]}
                     </span>
 
@@ -222,14 +314,14 @@ function LeadCaptureForm() {
                     onClick={() => toggleService(service)}
                     className={`flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left text-[13px] font-medium backdrop-blur-xl transition-all duration-200 ${
                       isChecked
-                        ? 'border-blue-300/70 bg-blue-500/10 text-blue-700 shadow-[0_4px_18px_rgba(37,99,235,0.08)]'
+                        ? 'border-[#ff3814]/40 bg-[#ff3814]/10 text-[#d92f10] shadow-[0_4px_18px_rgba(255,56,20,0.08)]'
                         : 'border-white/70 bg-white/35 text-slate-700 hover:bg-white/55'
                     }`}
                   >
                     <span
                       className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-all duration-150 ${
                         isChecked
-                          ? 'border-blue-500 bg-blue-600 shadow-[0_2px_8px_rgba(37,99,235,0.3)]'
+                          ? 'border-[#ff3814] bg-[#ff3814] shadow-[0_2px_8px_rgba(255,56,20,0.3)]'
                           : 'border-slate-300/80 bg-white/50'
                       }`}
                     >
@@ -257,8 +349,9 @@ function LeadCaptureForm() {
 
             {/* Discount Notice */}
             {selected.size > 0 && (
-              <div className="mt-5 flex items-start gap-3 rounded-2xl border border-blue-200/60 bg-blue-500/10 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-xl">
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/60 bg-blue-600 text-white shadow-md">
+              <div className="mt-5 flex items-start gap-3 rounded-2xl border border-[#ff3814]/25 bg-[#ff3814]/10 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-xl">
+
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/60 bg-[#ff3814] text-white shadow-md">
                   <svg
                     width="14"
                     height="14"
@@ -274,7 +367,7 @@ function LeadCaptureForm() {
                   </svg>
                 </span>
 
-                <p className="text-[13px] leading-snug text-blue-700">
+                <p className="text-[13px] leading-snug text-[#d92f10]">
                   <span className="font-semibold">
                     You'll get 20% instant discount
                   </span>
@@ -285,7 +378,10 @@ function LeadCaptureForm() {
             )}
           </div>
 
-          {/* RIGHT */}
+          {/* =====================================================
+              RIGHT
+              ===================================================== */}
+
           <div>
             <h3 className="text-base font-bold text-slate-900">
               2. Tell Us About You
@@ -296,6 +392,8 @@ function LeadCaptureForm() {
             </p>
 
             <div className="mt-4 grid grid-cols-2 gap-3">
+
+              {/* Name */}
               <FieldWithIcon
                 icon={
                   <svg
@@ -317,6 +415,7 @@ function LeadCaptureForm() {
                 onChange={(e) => setName(e.target.value)}
               />
 
+              {/* Company */}
               <FieldWithIcon
                 icon={
                   <svg
@@ -338,6 +437,7 @@ function LeadCaptureForm() {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
               />
+
             </div>
 
             {/* Email */}
@@ -354,7 +454,13 @@ function LeadCaptureForm() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <rect
+                      x="2"
+                      y="4"
+                      width="20"
+                      height="16"
+                      rx="2"
+                    />
                     <path d="M2 7l10 6 10-6" />
                   </svg>
                 }
@@ -377,14 +483,15 @@ function LeadCaptureForm() {
 
             {/* Phone */}
             <div className="mt-3">
+
               <div
                 className={`flex items-stretch overflow-hidden rounded-xl border bg-white/35 backdrop-blur-xl transition-all duration-200 ${
                   phoneError
                     ? 'border-red-400'
-                    : 'border-white/70 focus-within:border-blue-400/70 focus-within:bg-white/50'
+                    : 'border-white/70 focus-within:border-[#ff3814]/60 focus-within:bg-white/50'
                 }`}
               >
-                <span className="flex items-center gap-1 border-r border-white/60 px-3 text-sm font-medium text-slate-500 select-none">
+                <span className="flex select-none items-center gap-1 border-r border-white/60 px-3 text-sm font-medium text-slate-500">
                   <svg
                     width="15"
                     height="15"
@@ -420,6 +527,7 @@ function LeadCaptureForm() {
 
             {/* Note */}
             <div className="mt-3 flex items-start gap-3 rounded-xl border border-white/70 bg-white/35 px-3.5 py-3 backdrop-blur-xl transition-all focus-within:bg-white/50">
+
               <svg
                 width="16"
                 height="16"
@@ -448,7 +556,7 @@ function LeadCaptureForm() {
               type="button"
               onClick={handleSubmit}
               disabled={submitted}
-              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/30 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_12px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(37,99,235,0.32)] disabled:opacity-50"
+              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/30 bg-[#ff3814] px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_12px_30px_rgba(255,56,20,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e93212] hover:shadow-[0_16px_35px_rgba(255,56,20,0.32)] disabled:opacity-50"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -490,13 +598,18 @@ function LeadCaptureForm() {
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0110 0v4" />
               </svg>
+
               Your details are safe with us. We never share your information.
             </p>
           </div>
         </div>
 
-        {/* Trust section */}
+        {/* =====================================================
+            TRUST SECTION
+            ===================================================== */}
+
         <div className="relative mt-8 grid grid-cols-2 gap-4 border-t border-white/60 pt-6 md:grid-cols-4">
+
           <TrustItem
             icon={
               <svg
@@ -577,11 +690,16 @@ function LeadCaptureForm() {
             title="On-time Delivery"
             subtitle="We respect your time"
           />
+
         </div>
       </div>
     </section>
   );
 }
+
+/* =============================================================
+   FIELD COMPONENT
+   ============================================================= */
 
 function FieldWithIcon({ icon, error, ...props }) {
   return (
@@ -589,10 +707,12 @@ function FieldWithIcon({ icon, error, ...props }) {
       className={`flex items-center gap-2.5 rounded-xl border px-3.5 py-3 backdrop-blur-xl transition-all duration-200 ${
         error
           ? 'border-red-400 bg-red-50/30'
-          : 'border-white/70 bg-white/35 focus-within:border-blue-400/70 focus-within:bg-white/55'
+          : 'border-white/70 bg-white/35 focus-within:border-[#ff3814]/60 focus-within:bg-white/55'
       }`}
     >
-      <span className="shrink-0 text-slate-400">{icon}</span>
+      <span className="shrink-0 text-slate-400">
+        {icon}
+      </span>
 
       <input
         {...props}
@@ -602,10 +722,15 @@ function FieldWithIcon({ icon, error, ...props }) {
   );
 }
 
+/* =============================================================
+   TRUST ITEM
+   ============================================================= */
+
 function TrustItem({ icon, title, subtitle }) {
   return (
     <div className="flex items-start gap-2.5">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/40 text-blue-600 shadow-sm backdrop-blur-xl">
+
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/40 text-[#ff3814] shadow-sm backdrop-blur-xl">
         {icon}
       </span>
 
@@ -618,6 +743,7 @@ function TrustItem({ icon, title, subtitle }) {
           {subtitle}
         </p>
       </div>
+
     </div>
   );
 }
