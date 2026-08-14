@@ -100,29 +100,25 @@ export default function IndustrySlider() {
 
   const projects = [
     {
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1800&q=85",
+      image:"/Realestate.png",
       alt: "Real Estate",
       title: "Real Estate",
       path: "/realestate",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1800&q=85",
+      image:"/Manufacturing.png",
       alt: "Manufacturing",
       title: "Manufacture",
       path: "/manufacturing",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1800&q=85",
+      image:"/Retail.png",
       alt: "Retail",
       title: "Retail",
       path: "/retail",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1800&q=85",
+      image:"Jewelry.png",
       alt: "Jewelry",
       title: "Jewelry",
       path: "/jewelry",

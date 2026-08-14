@@ -101,7 +101,7 @@ export default function DesignSystem() {
           HEADER
           ========================================================= */}
 
-      <div className="relative z-10 mx-auto max-w-[1250px]">
+      <div className="relative z-10 mx-4 max-w-[1250px]">
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-9 bg-[#ff5a36]" />
 
@@ -162,7 +162,7 @@ export default function DesignSystem() {
         className="
           relative
           z-10
-          mx-auto
+          mx-4
           mt-16
           max-w-[1250px]
           overflow-hidden

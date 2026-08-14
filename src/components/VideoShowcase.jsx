@@ -125,7 +125,7 @@ export default function SelectedWork() {
               text-[#ff5a36]
             "
                     >
-                        Selected Work
+                        Edit
                     </span>
 
                     <span className="h-px w-9 bg-[#ff5a36]" />
